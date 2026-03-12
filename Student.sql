@@ -1,12 +1,4 @@
-create table student01 (
-    regno varchar(10) primary key,
-    name varchar(10),
-    class varchar(10),
-    bdate varchar(10),
-    marks1 int,
-    marks2 int,
-    marks3 int
-);
+create table student01 (regno varchar(10) primary key,name varchar(10),class varchar(10),bdate varchar(10),marks1 int,marks2 int,marks3 int);
 
 insert into student01 values ('s001', 'gopal', 'a', '2000-03-15', 85, 92, 78);
 insert into student01 values ('s002', 'ravindra', 'b', '2006-03-19', 78, 80, 75);
