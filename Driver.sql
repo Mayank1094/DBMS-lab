@@ -1,3 +1,13 @@
+drop table if exists participated23;
+
+drop table if exists owns23;
+
+drop table if exists accident23;
+
+drop table if exists car23;
+
+drop table if exists person23;
+
 create table person23(driver_id varchar(10) primary key,name varchar(20),address varchar(30));
 
 desc person23;
@@ -62,7 +72,7 @@ insert into owns23 values('d0004','r005');
 
 select * from owns23;
 
-create table participated23(driver_id varchar(10),regno varchar(10),report_no int,damage_amt int,foreign key(driver_id) references person23(driver_id),foreign key(regno) references car23(regno),foreign key(report_no) references accident23(report_no),damage_amt int);
+create table participated23(driver_id varchar(10),regno varchar(10),report_no int,damage_amt int,foreign key(driver_id) references person23(driver_id),foreign key(regno) references car23(regno),foreign key(report_no) references accident23(report_no));
 
 desc participated23;
 
@@ -82,11 +92,11 @@ update participated23 set damage_amt=25000 where regno='r001' and report_no=12;
 
 select * from participated23;
 
-insert into accident23 values(6,'2023-06-06','udupi');
+insert into accident23 values(16,'2023-06-06','udupi');
 
 select * from accident23;
 
-insert into participated23 values('d0004','r005',6,65000);
+insert into participated23 values('d0004','r005',16,65000);
 
 select * from participated23;
 
