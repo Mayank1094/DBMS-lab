@@ -1,4 +1,4 @@
-drop table if exists student01;
+drop table student01;
 
 create table student01 (regno varchar(10) primary key,name varchar(10),class varchar(10),bdate varchar(10),marks1 int,marks2 int,marks3 int);
 
