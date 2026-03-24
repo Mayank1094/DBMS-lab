@@ -1,6 +1,6 @@
-drop table if exists employee01;
+drop table employee01;
 
-drop table if exists department01;
+drop table department01;
 
 create table department01(deptno int primary key,dname varchar(20),managerid int);
 
