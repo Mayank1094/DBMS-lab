@@ -1,59 +1,97 @@
-create table author (author_id int primary key, name varchar(20), city varchar(20), country varchar(20));
+drop table order_details1;
 
-create table publisher (publisher_id int primary key, name varchar(20), city varchar(20), country varchar(20));
+drop table catalog1;
 
-create table category (category_id int primary key, description varchar(20));
+drop table category1;
 
-create table catalog (book_id int primary key, title varchar(20), author_id int, publisher_id int, category_id int, year int, price int, foreign key(author_id) references author(author_id), foreign key(publisher_id) references publisher(publisher_id), foreign key(category_id) references category(category_id));
+drop table publisher1;
 
-create table order_details (order_no int primary key, book_id int, quantity int, foreign key(book_id) references catalog(book_id));
+drop table author1;
 
-insert into author values (1, 'john', 'delhi', 'india');
-insert into author values (2, 'smith', 'mumbai', 'india');
-insert into author values (3, 'alice', 'chennai', 'india');
-insert into author values (4, 'bob', 'pune', 'india');
-insert into author values (5, 'mayank', 'ankola', 'india');
+create table author1(author_id number primary key,name varchar2(20),city varchar2(20),country varchar2(20));
 
-insert into publisher values (1, 'pub one', 'delhi', 'india');
-insert into publisher values (2, 'pub two', 'mumbai', 'india');
-insert into publisher values (3, 'pub three', 'chennai', 'india');
-insert into publisher values (4, 'pub four', 'pune', 'india');
-insert into publisher values (5, 'pub five', 'ankola', 'india');
+desc author1;
 
-insert into category values (1, 'fiction');
-insert into category values (2, 'science');
-insert into category values (3, 'history');
-insert into category values (4, 'math');
-insert into category values (5, 'art');
+insert into author1 values(101,'devaraj','mysore','india');
 
-insert into catalog values (101, 'book a', 1, 1, 1, 2020, 500);
-insert into catalog values (102, 'book b', 1, 2, 2, 2021, 800);
-insert into catalog values (103, 'book c', 2, 1, 3, 2019, 300);
-insert into catalog values (104, 'book d', 3, 3, 4, 2022, 700);
-insert into catalog values (105, 'book e', 4, 4, 5, 2023, 400);
+insert into author1 values(102,'lewis','london','uk');
 
-insert into order_details values (1001, 101, 5);
-insert into order_details values (1002, 102, 10);
-insert into order_details values (1003, 103, 2);
-insert into order_details values (1004, 104, 8);
-insert into order_details values (1005, 105, 3);
+insert into author1 values(103,'russell','ovval','australia');
 
-select a.author_id, a.name, a.city, a.country
-from author a
-where a.author_id in (
-select author_id
-from catalog
-where price > (select avg(price) from catalog)
-group by author_id
-having count(book_id) >= 2
-);
+insert into author1 values(104,'linda','queens','australia');
 
-select a.name
-from author a, catalog c, order_details o
-where a.author_id = c.author_id
-and c.book_id = o.book_id
-and o.quantity = (select max(quantity) from order_details);
+insert into author1 values(105,'norris','texas','usa');
 
-update catalog
-set price = price + (price * 0.10)
-where publisher_id = 1;
+select * from author1;
+
+create table publisher1(publisher_id number primary key,name varchar2(20),city varchar2(20),country varchar2(20));
+
+desc publisher1;
+
+insert into publisher1 values(1001,'akshay','karwar','india');
+
+insert into publisher1 values(1002,'gonzalo','colleo','peru');
+
+insert into publisher1 values(1003,'smith','bristol','uk');
+
+insert into publisher1 values(1004,'sato','osaka','japan');
+
+insert into publisher1 values(1005,'arya','guwahati','india');
+
+select * from publisher1;
+
+create table category1(category_id number primary key,description varchar2(20));
+
+desc category1;
+
+insert into category1 values(3001,'enlighting');
+
+insert into category1 values(3002,'magical');
+
+insert into category1 values(3003,'melancholic');
+
+insert into category1 values(3004,'lyrical');
+
+insert into category1 values(3005,'enchanting');
+
+select * from category1;
+
+create table catalog1(book_id number primary key,title varchar2(20),author_id number,publisher_id number,category_id number,year number,price number,foreign key(author_id) references author1(author_id),foreign key(publisher_id) references publisher1(publisher_id),foreign key(category_id) references category1(category_id));
+
+desc catalog1;
+
+insert into catalog1 values(1001,'the guide',101,1001,3001,1972,478);
+
+insert into catalog1 values(1002,'the galloway',104,1002,3002,1980,499);
+
+insert into catalog1 values(1003,'rich dad',103,1003,3003,2001,499);
+
+insert into catalog1 values(1004,'power',105,1004,3004,2010,1091);
+
+insert into catalog1 values(1005,'destiny',104,1005,3005,2015,799);
+
+select * from catalog1;
+
+create table order_details1(order_no number primary key,book_id number,quantity number,foreign key(book_id) references catalog1(book_id));
+
+desc order_details1;
+
+insert into order_details1 values(1,1001,8);
+
+insert into order_details1 values(2,1002,19);
+
+insert into order_details1 values(3,1003,4);
+
+insert into order_details1 values(4,1004,2);
+
+insert into order_details1 values(5,1005,22);
+
+select * from order_details1;
+
+select * from author1 where author_id in(select author_id from catalog1 where price>(select avg(price) from catalog1) group by author_id having count(author_id)>=1);
+
+select a.name from author1 a,catalog1 c where a.author_id=c.author_id and c.book_id in(select book_id from order_details1 where quantity=(select max(quantity) from order_details1));
+
+update catalog1 set price=price*1.1 where publisher_id in(select publisher_id from publisher1 where name='arya');
+
+select * from catalog1;
