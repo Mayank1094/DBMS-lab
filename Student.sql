@@ -13,7 +13,7 @@ commit;
 
 select * from student01;
 
-select * from student01 where class = 'a' and marks3 = 78;
+select * from student01 where class = 'a' and marks3 >= 78;
 
 select regno, marks1, marks2, marks3 from student01 order by marks3 desc;
 
