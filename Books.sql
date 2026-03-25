@@ -2,7 +2,7 @@ drop table order_details1;
 
 drop table catalog1;
 
-drop table category1;
+drop table category23;
 
 drop table publisher1;
 
