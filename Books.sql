@@ -44,7 +44,7 @@ insert into publisher1 values (1005, 'arya', 'guwahati', 'india');
 
 select * from publisher1;
 
-create table category23 (category_id int primary key, description varchar(10));
+create table category23 (category_id int primary key, description varchar(15));
 
 insert into category23 values (3001, 'enlighting');
 
