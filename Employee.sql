@@ -54,10 +54,10 @@ select empid,ename from employee01 where salary between 10000 and 50000;
 
 commit;
 
-select ename as name,salary as salary from employee01 e join department01 d on e.deptno=d.deptno where d.dname='cs';
+select ename as "name",salary as "salary" from employee01 e join department01 d on e.deptno=d.deptno where d.dname='cs';
 
 commit;
 
-select e.ename as name,d.dname as department from employee01 e join department01 d on e.empid=d.managerid;
+select e.ename as "name",d.dname as "department" from employee01 e join department01 d on e.empid=d.managerid;
 
 commit;
