@@ -36,7 +36,6 @@ select * from student01 where marks2 = (select max(marks2) from student01);
 select * from student01 where marks2 = (select min(marks2) from student01);
 
 insert into student01 values ('s006', 'sujan', 'b', '2010-10-07', 87, 65, 75);
-commit;
 
 delete from student01 where regno = 's006';
 
@@ -45,3 +44,5 @@ select * from student01;
 rollback;
 
 select * from student01;
+
+commit;
