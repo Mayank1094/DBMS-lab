@@ -1,8 +1,8 @@
-drop table if exists bookadoption37;
-drop table if exists trt37;
-drop table if exists enroll37;
-drop table if exists course37;
-drop table if exists student37;
+drop table bookadoption37;
+drop table trt37;
+drop table enroll37;
+drop table course37;
+drop table student37;
 
 create table student37(regno varchar(10) primary key,name varchar(12),major varchar(12),bdate date);
 desc student37;
