@@ -1,0 +1,1 @@
+select sum(e.salary) as total_salary, max(e.salary) as maximum_salary, min(e.salary) as minimum_salary, avg(e.salary) as average_salary from employee13 e where e.ssn in (select d.mgr_ssn from department13 d where d.dname = 'accounts');
