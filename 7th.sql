@@ -9,7 +9,7 @@ insert into department13 values (5, 'marketing', 105, '2023-02-11');
 select * from department13;
 commit;
 
-create table employee13 (ssn int primary key, name varchar(50), address varchar(100), sex char(1), salary decimal(10,2), superssn int, dno int, foreign key (dno) references department13(dno));
+create table employee13 (ssn int primary key, name varchar(50), address varchar(100), sex char(1), salary number(10,2), superssn int, dno int, foreign key (dno) references department13(dno));
 desc employee13;
 insert into employee13 values (101, 'michael scott', '123 paper st', 'm', 75000.00, null, 1);
 insert into employee13 values (102, 'dwight schrute', '456 farm rd', 'm', 60000.00, 101, 2);
