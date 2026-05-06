@@ -51,13 +51,13 @@ insert into works_on13 values ('5105', 25, 14);
 commit;
 select * from works_on13;
 
-select distinct p.pno from project13 p join works_on13 w on p.pno= w.pno join employee13 e on w.ssn = e.ssn where e.name like '%scott%'union select distinct p.pno from project13 p join department13 d onp.dno = d.dno join employee13 e on d.mgr_ssn = e.ssn where e.name like '%scott%';
+select distinct p.pno from project13 p join works_on13 w on p.pno= w.pno join employee13 e on w.ssn = e.ssn where e.name like '%scott%' union select distinct p.pno from project13 p join department13 d on p.dno = d.dno join employee13 e on d.mgr_ssn = e.ssn where e.name like '%scott%';
 
-select e.ssn, e.name, e.salary as current_salary, e.salary * 1.10 as raised_salary from employee13 e join works_on13 w on e.ssn = w.ssnjoin project13 p on w.pno = p.pno where p.pname = 'iot';
+select e.ssn, e.name, e.salary as current_salary, e.salary * 1.10 as raised_salary from employee13 e join works_on13 w on e.ssn = w.ssn join project13 p on w.pno = p.pno where p.pname = 'iot';
 
-select sum(e.salary) as total_salary, max(e.salary) as maximum_salary, min(e.salary) as minimum_salary, avg(e.salary) as average_salary from employee13 e where e.ssn in (select d.mgr_ssn from department13 d whered.dname = 'account');
+select sum(e.salary) as total_salary, max(e.salary) as maximum_salary, min(e.salary) as minimum_salary, avg(e.salary) as average_salary from employee13 e where e.ssn in (select d.mgr_ssn from department13 d where d.dname = 'account');
 
-create or replace view dept_loc_view as select d.dname as dept_name, dl.dlocas dept_location from department13 d join dlocation13 dl on d.dno = dl.dno;
+create or replace view dept_loc_view as select d.dname as dept_name, dl.dloc as dept_location from department13 d join dlocation13 dl on d.dno = dl.dno;
 
 select * from dept_loc_view;
 commit;
