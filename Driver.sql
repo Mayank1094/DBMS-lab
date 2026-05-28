@@ -13,13 +13,9 @@ create table person23 (driver_id varchar(10) primary key, name varchar(10), addr
 desc person23;
 
 insert into person23 values ('d001', 'akash', 'kumta');
-
 insert into person23 values ('d002', 'akul', 'ankola');
-
 insert into person23 values ('d003', 'sumit', 'karwar');
-
 insert into person23 values ('d004', 'virat', 'banglore');
-
 insert into person23 values ('d005', 'vipul', 'udupi');
 
 select * from person23;
@@ -29,13 +25,9 @@ create table car23 (regno varchar(10) primary key, model varchar(20), year int);
 desc car23;
 
 insert into car23 values ('r001', 'honda', 2010);
-
 insert into car23 values ('r002', 'toyota', 2012);
-
 insert into car23 values ('r003', 'ford', 2014);
-
 insert into car23 values ('r004', 'maruti', 2016);
-
 insert into car23 values ('r005', 'hyundai', 2016);
 
 select * from car23;
@@ -45,13 +37,9 @@ create table accident23 (report_no int primary key, report_date date, location v
 desc accident23;
 
 insert into accident23 values (11, '01-jan-2002', 'bhatkal');
-
 insert into accident23 values (12, '03-feb-2020', 'ahmedabad');
-
 insert into accident23 values (13, '13-mar-2010', 'surat');
-
 insert into accident23 values (14, '20-apr-2002', 'kundapur');
-
 insert into accident23 values (15, '15-may-2015', 'honnawar');
 
 select * from accident23;
@@ -61,13 +49,9 @@ create table owns23 (driver_id varchar(10), regno varchar(20), foreign key (driv
 desc owns23;
 
 insert into owns23 values ('d001', 'r001');
-
 insert into owns23 values ('d002', 'r002');
-
 insert into owns23 values ('d003', 'r003');
-
 insert into owns23 values ('d003', 'r004');
-
 insert into owns23 values ('d004', 'r005');
 
 select * from owns23;
@@ -77,13 +61,9 @@ create table participated23 (driver_id varchar(10), regno varchar(10), report_no
 desc participated23;
 
 insert into participated23 values ('d001', 'r001', 12, 5000);
-
 insert into participated23 values ('d002', 'r003', 13, 10000);
-
 insert into participated23 values ('d004', 'r005', 14, 35000);
-
 insert into participated23 values ('d003', 'r002', 11, 25000);
-
 insert into participated23 values ('d001', 'r004', 15, 15000);
 
 select * from participated23;
