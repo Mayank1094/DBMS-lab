@@ -11,13 +11,9 @@ desc department01;
 commit;
 
 insert into department01 values(1,'hr',101);
-
 insert into department01 values(2,'manager',102);
-
 insert into department01 values(3,'cs',103);
-
 insert into department01 values(4,'marketing',104);
-
 insert into department01 values(5,'operations',105);
 
 commit;
@@ -35,13 +31,9 @@ desc employee01;
 commit;
 
 insert into employee01 values(101,'arun',30,50000,1);
-
 insert into employee01 values(102,'ajay',28,55000,2);
-
 insert into employee01 values(103,'sameer',35,60000,3);
-
 insert into employee01 values(104,'uma',29,45000,4);
-
 insert into employee01 values(105,'kishan',27,52000,5);
 
 commit;
